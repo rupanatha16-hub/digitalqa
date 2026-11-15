@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,17 +8,18 @@
 <style>
 :root{--n:#19c3ff;--g:#ffc633}
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Arial,sans-serif}
-body{background:#050b1a;color:#e8f1ff;padding:12px;min-height:100vh}
+body{background:radial-gradient(circle at 50% 0,#0b2a63,#050b1a 55%) fixed;color:#e8f1ff;padding:12px;min-height:100vh}
 h1{font-size:20px;color:var(--n);margin-bottom:10px}
-.card{background:#0c1a3a;border:1px solid #19c3ff55;border-radius:14px;padding:14px;margin-bottom:12px}
-input,select{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #19c3ff66;background:#07122b;color:#fff;font-size:15px}
+.card{background:#0c1a3acc;border:1px solid #19c3ff55;border-radius:14px;padding:14px;margin-bottom:12px}
+.new{border:2px solid var(--g);box-shadow:0 0 14px #ffc63355}
+input,select,textarea{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #19c3ff66;background:#07122b;color:#fff;font-size:15px}
 label{font-size:13px;color:#9db6dd}
 .b{background:linear-gradient(135deg,#19c3ff,#2563eb);color:#fff;border:0;border-radius:20px;padding:9px 16px;font-weight:700;cursor:pointer;font-size:14px;text-decoration:none;display:inline-block;margin:3px 3px 3px 0}
 .g{background:linear-gradient(135deg,#ffc633,#ff9d00);color:#111}
 .gr{background:#25d366;color:#fff}
 .rd{background:#ef4444;color:#fff}
-.ok{background:#16a34a;color:#fff;font-size:17px;padding:12px 20px}
-.no{background:#dc2626;color:#fff;font-size:17px;padding:12px 20px}
+.ok{background:#16a34a;color:#fff;font-size:16px;padding:11px 18px}
+.no{background:#dc2626;color:#fff;font-size:16px;padding:11px 18px}
 .mid{background:#334155;color:#fff}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .note{font-size:12px;color:#9db6dd;margin:4px 0}
@@ -29,33 +30,52 @@ label{font-size:13px;color:#9db6dd}
 .r{border-top:1px solid #ffffff14;padding-top:8px;margin-top:8px;font-size:14px;line-height:1.6}
 .r b{color:var(--g)}
 .sec{display:none}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.st{background:#0c1a3acc;border:1px solid #19c3ff55;border-radius:14px;padding:10px;text-align:center}
+.st b{display:block;font-size:22px;color:var(--g)}
+.st span{font-size:12px;color:#9db6dd}
+.alert{display:none;background:#16a34a;color:#fff;padding:12px;border-radius:12px;margin-bottom:12px;font-weight:700;text-align:center;cursor:pointer}
+.live{font-size:12px;color:#7ee2a1;margin-bottom:8px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#16a34a;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;display:none;z-index:9}
+textarea{min-height:60px;resize:vertical}
 </style>
 </head>
 <body>
 
 <div id="lg" class="card">
-<h1>Admin लॉगिन</h1>
-<label>ईमेल</label><input id="em" type="email" autocomplete="username">
-<label>पासवर्ड</label><input id="pw" type="password" autocomplete="current-password">
-<button class="b g" onclick="login()">लॉगिन करें</button>
+<h1>Admin Login</h1>
+<label>Email</label><input id="em" type="email" autocomplete="username">
+<label>Password</label><input id="pw" type="password" autocomplete="current-password">
+<button class="b g" onclick="login()">Login</button>
 <div class="msg" id="lm"></div>
 </div>
 
 <div id="ad" class="sec">
-<div class="top"><h1>DIGITAL QA - Admin</h1><button class="b rd" onclick="logout()">लॉगआउट</button></div>
+<div class="top"><h1>DIGITAL QA - Admin</h1><button class="b rd" onclick="logout()">Logout</button></div>
+<div class="live">🟢 Live: new requests appear automatically</div>
+<div class="alert" id="al" onclick="clearAl()"></div>
+
+<div class="stats">
+<div class="st"><b id="s1">0</b><span>New (Received)</span></div>
+<div class="st"><b id="s2">0</b><span>Requests today</span></div>
+<div class="st"><b id="s3">0</b><span>Requests this month</span></div>
+<div class="st"><b id="s4">₹0</b><span>Money received</span></div>
+</div>
+
 <div class="card">
-<label>सर्च (नाम / मोबाइल / ID)</label><input id="q" oninput="draw()" placeholder="खोजें">
-<label>स्टेटस फ़िल्टर</label>
-<select id="fs" onchange="draw()"><option value="">सभी</option><option>Received</option><option>Pending</option><option>Approved</option><option>Rejected</option><option>Completed</option></select>
-<label>पेमेंट फ़िल्टर</label>
-<select id="fp" onchange="draw()"><option value="">सभी</option><option>Pending</option><option>Paid</option><option>Failed</option></select>
-<label>सेवा फ़िल्टर</label>
-<select id="fv" onchange="draw()"><option value="">सभी</option></select>
-<button class="b" onclick="load()">🔄 रिफ़्रेश</button>
+<label>Search (name / mobile / ID)</label><input id="q" oninput="draw()" placeholder="Search">
+<label>Status filter</label>
+<select id="fs" onchange="draw()"><option value="">All</option><option>Received</option><option>Pending</option><option>Approved</option><option>Rejected</option><option>Completed</option></select>
+<label>Payment filter</label>
+<select id="fp" onchange="draw()"><option value="">All</option><option>Pending</option><option>Paid</option><option>Failed</option></select>
+<label>Service filter</label>
+<select id="fv" onchange="draw()"><option value="">All</option></select>
 <div class="note" id="cnt"></div>
 </div>
 <div id="ls"></div>
 </div>
+
+<div id="toast"></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -63,65 +83,108 @@ label{font-size:13px;color:#9db6dd}
 <script>
 var FB={apiKey:"AIzaSyDgvmTp_r5QApbrsF4wIc7Oulxxofp_Zm4",authDomain:"digitalqa-1e726.firebaseapp.com",projectId:"digitalqa-1e726",appId:"1:608838619299:web:9de318e69cf03953076f16"};
 firebase.initializeApp(FB);
-var auth=firebase.auth(),db=firebase.firestore(),DATA=[];
+var auth=firebase.auth(),db=firebase.firestore(),DATA=[],unsub=null,first=true,fresh=0;
 var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function toast(m){var t=$("toast");t.textContent=m;t.style.display="block";setTimeout(function(){t.style.display="none"},2000)}
 
 function login(){
 var e=$("em").value.trim(),p=$("pw").value;
-if(!e||!p){$("lm").textContent="ईमेल और पासवर्ड लिखें";return}
-$("lm").textContent="लॉगिन हो रहा है...";
-auth.signInWithEmailAndPassword(e,p).catch(function(){$("lm").textContent="लॉगिन नहीं हुआ। ईमेल/पासवर्ड जाँचें।"})}
+if(!e||!p){$("lm").textContent="Please enter email and password";return}
+$("lm").textContent="Logging in...";
+auth.signInWithEmailAndPassword(e,p).catch(function(){$("lm").textContent="Login failed. Check email/password."})}
 function logout(){auth.signOut()}
 
 auth.onAuthStateChanged(function(u){
-if(u){$("lg").style.display="none";$("ad").style.display="block";$("pw").value="";load()}
-else{$("lg").style.display="block";$("ad").style.display="none";DATA=[]}});
+if(u){$("lg").style.display="none";$("ad").style.display="block";$("pw").value="";start()}
+else{if(unsub){unsub();unsub=null}$("lg").style.display="block";$("ad").style.display="none";DATA=[]}});
 
-function load(){
-$("cnt").textContent="लोड हो रहा है...";
-db.collection("applications").orderBy("createdAt","desc").get().then(function(s){
+function start(){
+if(unsub)unsub();
+first=true;fresh=0;
+$("cnt").textContent="Loading...";
+unsub=db.collection("applications").orderBy("createdAt","desc").onSnapshot(function(s){
 DATA=[];s.forEach(function(d){DATA.push(d.data())});
+if(!first){
+var n=s.docChanges().filter(function(c){return c.type==="added"}).length;
+if(n>0){fresh+=n;showAl()}}
+first=false;
 var sv={};DATA.forEach(function(x){if(x.service)sv[x.service]=1});
-var cur=$("fv").value,h='<option value="">सभी</option>';
+var cur=$("fv").value,h='<option value="">All</option>';
 Object.keys(sv).sort().forEach(function(k){h+='<option'+(k===cur?' selected':'')+'>'+esc(k)+'</option>'});
 $("fv").innerHTML=h;
-draw()}).catch(function(){$("cnt").textContent="लिस्ट नहीं आई। Rules या इंटरनेट जाँचें।"})}
+stats();safeDraw()},
+function(){$("cnt").textContent="Could not load the list. Check Rules or internet."})}
+
+function showAl(){
+$("al").textContent="🔔 "+fresh+" new request"+(fresh>1?"s":"")+" received! Tap to dismiss";
+$("al").style.display="block";
+document.title="("+fresh+") New request - DIGITAL QA";
+try{if(navigator.vibrate)navigator.vibrate(200)}catch(e){}}
+function clearAl(){fresh=0;$("al").style.display="none";document.title="DIGITAL QA - Admin"}
+
+function stats(){
+var now=new Date(),ty=now.getFullYear(),tm=now.getMonth(),td=now.getDate(),rc=0,today=0,mon=0,sum=0;
+DATA.forEach(function(d){
+if(d.status==="Received")rc++;
+var c=d.createdAt&&d.createdAt.toDate?d.createdAt.toDate():null;
+if(c&&c.getFullYear()===ty&&c.getMonth()===tm){mon++;if(c.getDate()===td)today++}
+if(d.paymentStatus==="Paid")sum+=Number(d.price)||0});
+$("s1").textContent=rc;$("s2").textContent=today;$("s3").textContent=mon;$("s4").textContent="₹"+sum}
+
+function safeDraw(){
+var a=document.activeElement;
+if(a&&a.tagName==="TEXTAREA")return;
+draw()}
 
 function draw(){
 var q=$("q").value.trim().toLowerCase(),fs=$("fs").value,fp=$("fp").value,fv=$("fv").value,o="",n=0;
-DATA.forEach(function(d){
+var arr=DATA.map(function(d,i){return{d:d,i:i}});
+arr.sort(function(a,b){
+var ra=a.d.status==="Received"?0:1,rb=b.d.status==="Received"?0:1;
+return ra!==rb?ra-rb:a.i-b.i});
+arr.forEach(function(w){
+var d=w.d;
 if(fs&&d.status!==fs)return;
 if(fp&&d.paymentStatus!==fp)return;
 if(fv&&d.service!==fv)return;
 if(q&&((d.name||"")+" "+(d.mobile||"")+" "+(d.id||"")).toLowerCase().indexOf(q)<0)return;
 n++;
-var t=d.createdAt&&d.createdAt.toDate?d.createdAt.toDate().toLocaleString("hi-IN"):"";
+var t=d.createdAt&&d.createdAt.toDate?d.createdAt.toDate().toLocaleString("en-IN"):"";
 var x=d.extra||{},ex="";
-if(x.cibil||x.income||x.employment||x.amount)ex='<br>🏦 CIBIL: '+esc(x.cibil)+' | आय: ₹'+esc(x.income)+' | काम: '+esc(x.employment)+' | राशि: ₹'+esc(x.amount);
-var wa="https://wa.me/91"+esc(d.mobile)+"?text="+encodeURIComponent("नमस्ते "+(d.name||"")+", DIGITAL QA से। आपकी Application ID "+d.id+" के बारे में।");
-o+='<div class="card"><b style="color:#19c3ff">'+esc(d.id)+'</b> <span class="note">'+esc(t)+'</span><br>'+
-'<span class="tag s-'+esc(d.status)+'">'+esc(d.status)+'</span><span class="tag p-'+esc(d.paymentStatus)+'">पेमेंट: '+esc(d.paymentStatus)+'</span>'+
-'<div class="r"><b>नाम:</b> '+esc(d.name)+'<br><b>मोबाइल:</b> '+esc(d.mobile)+(d.email?'<br><b>ईमेल:</b> '+esc(d.email):'')+
-'<br><b>सेवा:</b> '+esc(d.service)+'<br><b>शुल्क:</b> '+(d.price?'₹'+esc(d.price):'संपर्क करें')+
-'<br><b>Payment Ref:</b> '+esc(d.payRef||"-")+'<br><b>जानकारी:</b> '+esc(d.details||"-")+ex+'</div>'+
-'<div class="r"><button class="b ok" onclick="setS(\''+esc(d.id)+'\',\'Approved\')">✅ मंज़ूर</button>'+
-'<button class="b no" onclick="setS(\''+esc(d.id)+'\',\'Rejected\')">❌ अस्वीकार</button><br>'+
-'<button class="b mid" onclick="setS(\''+esc(d.id)+'\',\'Pending\')">⏳ Pending</button>'+
-'<button class="b mid" onclick="setS(\''+esc(d.id)+'\',\'Completed\')">🏁 काम पूरा</button></div>'+
-'<div class="r"><button class="b ok" onclick="setP(\''+esc(d.id)+'\',\'Paid\')">💰 पैसा आ गया</button>'+
-'<button class="b no" onclick="setP(\''+esc(d.id)+'\',\'Failed\')">पेमेंट Failed</button></div>'+
-'<div class="r"><a class="b" href="tel:'+esc(d.mobile)+'">📞 कॉल</a><a class="b gr" target="_blank" rel="noopener" href="'+wa+'">💬 WhatsApp</a></div></div>'});
-$("ls").innerHTML=o||'<div class="card note">कोई रिक्वेस्ट नहीं मिली।</div>';
-$("cnt").textContent="कुल: "+n+" / "+DATA.length}
+if(x.cibil||x.income||x.employment||x.amount)ex='<br>🏦 CIBIL: '+esc(x.cibil)+' | Income: ₹'+esc(x.income)+' | Work: '+esc(x.employment)+' | Amount: ₹'+esc(x.amount);
+var wa="https://wa.me/91"+esc(d.mobile)+"?text="+encodeURIComponent("नमस्ते "+(d.name||"")+", मेरा नाम रूपनाथ है और मुझे आपकी रिक्वेस्ट मिल गई है, बताइए क्या करना है।");
+var id=esc(d.id);
+o+='<div class="card'+(d.status==="Received"?' new':'')+'"><b style="color:#19c3ff">'+id+'</b> <span class="note">'+esc(t)+'</span><br>'+
+'<span class="tag s-'+esc(d.status)+'">'+esc(d.status)+'</span><span class="tag p-'+esc(d.paymentStatus)+'">Payment: '+esc(d.paymentStatus)+'</span>'+
+'<div class="r"><b>Name:</b> '+esc(d.name)+'<br><b>Mobile:</b> '+esc(d.mobile)+(d.email?'<br><b>Email:</b> '+esc(d.email):'')+
+'<br><b>Service:</b> '+esc(d.service)+'<br><b>Fee:</b> '+(d.price?'₹'+esc(d.price):'Contact')+
+'<br><b>Payment Ref:</b> '+esc(d.payRef||"-")+'<br><b>Details:</b> '+esc(d.details||"-")+ex+'</div>'+
+'<div class="r"><button class="b ok" onclick="setS(\''+id+'\',\'Approved\')">✅ Approve</button>'+
+'<button class="b no" onclick="setS(\''+id+'\',\'Rejected\')">❌ Reject</button><br>'+
+'<button class="b mid" onclick="setS(\''+id+'\',\'Pending\')">⏳ Pending</button>'+
+'<button class="b mid" onclick="setS(\''+id+'\',\'Completed\')">🏁 Completed</button></div>'+
+'<div class="r"><button class="b ok" onclick="setP(\''+id+'\',\'Paid\')">💰 Payment received</button>'+
+'<button class="b no" onclick="setP(\''+id+'\',\'Failed\')">Payment failed</button></div>'+
+'<div class="r"><b>My note</b><textarea id="nt_'+id+'" placeholder="Write a note...">'+esc(d.adminNote||"")+'</textarea>'+
+'<button class="b g" onclick="saveNote(\''+id+'\')">💾 Save note</button></div>'+
+'<div class="r"><a class="b" href="tel:'+esc(d.mobile)+'">📞 Call</a><a class="b gr" target="_blank" rel="noopener" href="'+wa+'">💬 WhatsApp</a></div></div>'});
+$("ls").innerHTML=o||'<div class="card note">No requests found.</div>';
+$("cnt").textContent="Showing: "+n+" / "+DATA.length}
 
 function setS(id,v){
-if(!confirm("पक्का "+v+" करें?"))return;
-db.collection("applications").doc(id).update({status:v,history:firebase.firestore.FieldValue.arrayUnion({s:v,t:Date.now()})}).then(function(){alert("स्टेटस बदल गया");load()}).catch(function(){alert("बदल नहीं पाया। दोबारा कोशिश करें।")})}
+if(!confirm("Mark as "+v+"?"))return;
+db.collection("applications").doc(id).update({status:v,history:firebase.firestore.FieldValue.arrayUnion({s:v,t:Date.now()})}).then(function(){toast("Status updated")}).catch(function(){alert("Could not update. Try again.")})}
 
 function setP(id,v){
-if(!confirm("पक्का पेमेंट "+v+" करें?"))return;
-db.collection("applications").doc(id).update({paymentStatus:v}).then(function(){alert("पेमेंट बदल गया");load()}).catch(function(){alert("बदल नहीं पाया। दोबारा कोशिश करें।")})}
+if(!confirm("Mark payment as "+v+"?"))return;
+db.collection("applications").doc(id).update({paymentStatus:v}).then(function(){toast("Payment updated")}).catch(function(){alert("Could not update. Try again.")})}
+
+function saveNote(id){
+var e=$("nt_"+id);if(!e)return;
+var v=e.value.trim();
+e.blur();
+db.collection("applications").doc(id).update({adminNote:v}).then(function(){toast("Note saved")}).catch(function(){alert("Could not save note. Tell Claude.")})}
 </script>
 </body>
 </html>
