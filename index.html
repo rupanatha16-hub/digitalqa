@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DIGITAL QA - आपकी सभी डिजिटल सेवाओं का एक ही स्थान</title>
+<style>
+:root{--n:#19c3ff;--g:#ffc633}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Arial,sans-serif}
+body{background:radial-gradient(circle at 50% 0,#0b2a63,#050b1a 55%) fixed;color:#e8f1ff}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;position:sticky;top:0;background:#050b1ae6;border-bottom:1px solid #19c3ff44;z-index:5}
+.lg{font-weight:800;font-size:22px;color:var(--n);text-shadow:0 0 12px #19c3ff}.lg b{color:var(--g)}
+nav a{color:#cfe6ff;text-decoration:none;margin-left:12px;font-size:14px}
+.hero{text-align:center;padding:48px 16px}
+.hero h1{font-size:30px;color:#fff;text-shadow:0 0 18px #19c3ff}
+.hero p{color:var(--g);margin:10px 0 20px;font-size:17px}
+.b{background:linear-gradient(135deg,#19c3ff,#2563eb);color:#fff;border:0;border-radius:24px;padding:11px 20px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 0 14px #19c3ff88;font-size:15px}
+.g{background:linear-gradient(135deg,#ffc633,#ff9d00);color:#111;box-shadow:0 0 14px #ffc63388}
+section{max-width:1000px;margin:auto;padding:26px 14px}
+h2{text-align:center;color:var(--g);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.card{background:#0c1a3acc;border:1px solid #19c3ff55;border-radius:16px;padding:16px;box-shadow:0 0 18px #19c3ff22}
+.ic{font-size:32px}.card h3{color:var(--n);margin:4px 0 10px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 0;border-top:1px solid #ffffff14;font-size:14px}
+.row span{flex:1 1 140px}.row b{color:var(--g)}
+.row button{background:#19c3ff22;color:var(--n);border:1px solid var(--n);border-radius:16px;padding:6px 12px;cursor:pointer}
+input,select,textarea{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #19c3ff66;background:#07122b;color:#fff;font-size:15px}
+label{font-size:13px;color:#9db6dd}
+#md{position:fixed;inset:0;background:#000c;display:none;overflow:auto;z-index:20;padding:14px}
+#mb{background:#0a1633;border:1px solid var(--n);border-radius:16px;padding:18px;max-width:460px;margin:auto}
+.note{font-size:12px;color:#9db6dd;margin:6px 0;line-height:1.5}
+.warn{background:#ffc63318;border:1px solid #ffc63366;border-radius:10px;padding:10px;font-size:13px;color:#ffe29a;margin:10px 0}
+.tl{list-style:none;border-left:2px solid var(--n);margin:12px 0 0 6px;padding-left:14px}
+.tl li{margin-bottom:10px;font-size:14px}.tl small{display:block;color:#9db6dd}
+.pay{text-align:center}.upi{font-size:20px;color:var(--g);font-weight:700;margin:8px 0;word-break:break-all}
+footer{text-align:center;padding:22px 14px 90px;background:#030814;font-size:13px;color:#9db6dd;line-height:2}
+footer a{color:var(--n);margin:0 6px;cursor:pointer}
+.wa{position:fixed;right:14px;bottom:14px;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:6;animation:p 2s infinite}
+@keyframes p{0%{box-shadow:0 0 0 0 #25d366aa}70%{box-shadow:0 0 0 16px #25d36600}100%{box-shadow:0 0 0 0 #25d36600}}
+@media(prefers-reduced-motion:reduce){.wa{animation:none}}
+</style>
+</head>
+<body>
+<header><div class="lg">DIGITAL <b>QA</b></div><nav><a href="#sv">सेवाएँ</a><a href="#pay" id="npy">पेमेंट</a><a href="#tr" id="ntr">ट्रैक करें</a></nav></header>
+
+<div class="hero">
+<h1>Welcome to DIGITAL QA</h1>
+<p>आपकी सभी डिजिटल सेवाओं का एक ही स्थान।</p>
+<a class="b g" href="#sv">सेवाएँ देखें</a> <a class="b" id="wa1" href="#">WhatsApp करें</a>
+</div>
+
+<section id="sv"><h2>Our Services</h2><div class="grid" id="gr"></div>
+<div class="warn" style="margin-top:16px">🏦 700+ CIBIL Score वाले ग्राहकों के लिए Loan Assistance उपलब्ध है। लोन की मंज़ूरी बैंक/लेंडर की शर्तों पर निर्भर करती है, 700+ CIBIL स्कोर से मंज़ूरी की गारंटी नहीं है।</div>
+</section>
+
+<section id="pay"><h2>पेमेंट</h2>
+<div class="card pay"><p>UPI से भुगतान करें</p><div class="upi" id="upi"></div>
+<button class="b" onclick="cp()">UPI ID कॉपी करें</button>
+<p class="note">पेमेंट के बाद फ़ॉर्म में Payment Reference ID लिखें। पेमेंट की पुष्टि हमारी तरफ़ से जाँच के बाद ही होती है।</p></div></section>
+
+<section id="tr"><h2>Track Application</h2>
+<div class="card"><label>Application ID</label><input id="ti" placeholder="जैसे DQ8K2M4XQ7">
+<label>मोबाइल नंबर</label><input id="tm" type="tel" maxlength="10" placeholder="10 अंकों का नंबर">
+<button class="b" onclick="trk()">स्टेटस देखें</button><div id="to"></div></div></section>
+
+<footer><b style="color:#fff">DIGITAL QA</b><br>Owner: Rupnath | Kekri, Ajmer, Rajasthan | 📞 9509457194<br>
+<a onclick="info('about')">About Us</a><a onclick="info('contact')">Contact Us</a><a onclick="info('privacy')">Privacy Policy</a><a onclick="info('terms')">Terms &amp; Conditions</a><a onclick="info('refund')">Refund Policy</a></footer>
+
+<a class="wa" id="wa2" href="#">💬</a>
+<div id="md"><div id="mb"></div></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+var C={wa:"919509457194",upi:"rupanatha16@okicici"};
+var FB={apiKey:"AIzaSyDgvmTp_r5QApbrsF4wIc7Oulxxofp_Zm4",authDomain:"digitalqa-1e726.firebaseapp.com",projectId:"digitalqa-1e726",appId:"1:608838619299:web:9de318e69cf03953076f16"};
+var OK=FB.apiKey!=="PASTE_HERE",db=null,UP=C.upi.indexOf("UPI-ID")<0;if(OK){firebase.initializeApp(FB);db=firebase.firestore()}
+var S=[
+{i:"🪪",t:"आधार कार्ड सेवाएँ",o:[["Aadhaar Address Update",150],["Aadhaar Mobile Number Update",199],["Other Aadhaar Correction",0]]},
+{i:"💳",t:"पैन कार्ड सेवाएँ",o:[["New PAN Card Application",210],["PAN Card Correction",50],["PAN Replacement / Reprint",0],["PAN Application Status",0]]},
+{i:"🗳️",t:"वोटर आईडी सेवाएँ",o:[["New Voter ID Card",100],["Voter ID Correction",40],["Voter ID Replacement",0],["Voter ID Application Status",0]]},
+{i:"🏦",t:"लोन असिस्टेंस",loan:1,o:[["Personal Loan Assistance",0],["Loan Eligibility Check",0]]},
+{i:"📸",t:"पासपोर्ट साइज़ फ़ोटो",o:[["Passport Size Photo",0],["White Background Photo",0],["Blue Background Photo",0],["Multiple Passport Photos",0],["Photo Resize",0]]},
+{i:"🖼️",t:"फ़ोटो एडिटिंग",o:[["Photo Background Removal",0],["Professional Photo Editing",0]]},
+{i:"📝",t:"ऑनलाइन एप्लीकेशन",o:[["Online Application Service",0]]},
+{i:"📄",t:"डॉक्यूमेंट करेक्शन",o:[["Document Correction Service",0]]}
+];
+var P={
+about:"<h3>About Us</h3><p class='note'>DIGITAL QA, केकड़ी (अजमेर, राजस्थान) में आपकी डिजिटल सेवाओं का केंद्र है। संचालक: Rupnath।</p>",
+contact:"<h3>Contact Us</h3><p class='note'>📞 9509457194<br>📍 Kekri, Ajmer, Rajasthan<br><a class='b' href='https://wa.me/"+C.wa+"'>WhatsApp</a></p>",
+privacy:"<h3>Privacy Policy</h3><p class='note'>हम सिर्फ़ आपका नाम, मोबाइल नंबर और काम की जानकारी आपकी सेवा पूरी करने के लिए लेते हैं। हम OTP, पासवर्ड या बैंक PIN कभी नहीं माँगते। दस्तावेज़ वेबसाइट पर नहीं लिए जाते, सिर्फ़ संपर्क होने के बाद लिए जाते हैं। अपनी जानकारी हटवाने के लिए 9509457194 पर संपर्क करें। आपकी जानकारी किसी को बेची नहीं जाती।</p>",
+terms:"<h3>Terms &amp; Conditions</h3><p class='note'>सेवा शुल्क फ़ॉर्म में दिखाए अनुसार है; जहाँ 'संपर्क करें' लिखा है वहाँ कीमत बातचीत से तय होगी। सरकारी विभाग या बैंक का निर्णय हमारे नियंत्रण में नहीं है। लोन की मंज़ूरी लेंडर की शर्तों पर निर्भर है। गलत जानकारी देने पर होने वाली देरी या अस्वीकृति की ज़िम्मेदारी ग्राहक की होगी।</p>",
+refund:"<h3>Refund Policy</h3><p class='note'>काम शुरू होने से पहले रद्द करने पर पूरा शुल्क लौटाया जाएगा। काम शुरू होने के बाद शुल्क वापस नहीं होगा, और सरकारी शुल्क (यदि लगा हो) अलग से वापस नहीं होता।</p>"
+};
+var cur,$=function(i){return document.getElementById(i)},v=function(i){var e=$(i);return e?e.value:""};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+var WA="https://wa.me/"+C.wa+"?text="+encodeURIComponent("Hello DIGITAL QA, मुझे आपकी सर्विस के बारे में जानकारी चाहिए।");
+$("wa1").href=WA;$("wa2").href=WA;$("upi").textContent=C.upi;if(!OK){$("tr").style.display="none";$("ntr").style.display="none"}if(!UP){$("pay").style.display="none";$("npy").style.display="none"}
+var h="";
+S.forEach(function(c,x){h+='<div class="card"><div class="ic">'+c.i+'</div><h3>'+c.t+'</h3>';
+c.o.forEach(function(o,y){h+='<div class="row"><span>'+o[0]+'</span><b>'+(o[1]?'₹'+o[1]:'संपर्क करें')+'</b><button onclick="openF('+x+','+y+')">Apply Now</button></div>'});
+h+='</div>'});
+$("gr").innerHTML=h;
+function show(html){$("mb").innerHTML=html+'<p style="text-align:center;margin-top:12px"><button class="b" onclick="closeM()">बंद करें</button></p>';$("md").style.display="block"}
+function closeM(){$("md").style.display="none"}
+function info(k){show(P[k])}
+function cp(){if(navigator.clipboard)navigator.clipboard.writeText(C.upi);alert("UPI ID कॉपी हो गई")}
+function gen(){var a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",r=crypto.getRandomValues(new Uint8Array(8)),s="DQ";for(var i=0;i<8;i++)s+=a[r[i]%a.length];return s}
+function openF(x,y){cur={c:S[x],o:S[x].o[y]};
+var f='<h3 style="color:#19c3ff">'+cur.o[0]+'</h3><p style="color:#ffc633">'+(cur.o[1]?'शुल्क: ₹'+cur.o[1]:'शुल्क: संपर्क करें')+'</p>'+
+'<label>पूरा नाम *</label><input id="n"><label>मोबाइल नंबर *</label><input id="m" type="tel" maxlength="10"><label>ईमेल (वैकल्पिक)</label><input id="em" type="email">';
+if(cur.c.loan)f+='<label>CIBIL स्कोर रेंज</label><select id="cb"><option>700 से ऊपर</option><option>650-699</option><option>650 से कम</option><option>पता नहीं</option></select><label>मासिक आय (₹)</label><input id="inc" type="number"><label>काम का प्रकार</label><select id="emp"><option>नौकरी</option><option>व्यापार</option><option>स्व-रोज़गार</option><option>अन्य</option></select><label>ज़रूरी लोन राशि (₹)</label><input id="amt" type="number"><p class="note">लोन की मंज़ूरी लेंडर की शर्तों पर निर्भर है।</p>';
+f+='<label>काम की जानकारी</label><textarea id="dt" rows="3" placeholder="आपको क्या करवाना है"></textarea>';
+if(cur.o[1]&&UP)f+='<label>Payment Reference ID (पेमेंट के बाद)</label><input id="pr"><p class="note">UPI: <b>'+esc(C.upi)+'</b></p>';
+f+='<div class="warn">⚠️ यहाँ OTP, पासवर्ड या आधार/पैन नंबर न लिखें। दस्तावेज़ संपर्क होने के बाद ही, हमारे बताए तरीके से भेजें।</div>'+
+'<label><input type="checkbox" id="cs" style="width:auto"> मैं अपनी जानकारी इस सेवा के लिए इस्तेमाल करने की सहमति देता/देती हूँ। *</label>'+
+'<p style="margin-top:10px"><button class="b g" id="sb" onclick="sub()">Submit करें</button></p>';
+show(f)}
+function sub(){
+var n=v("n").trim(),m=v("m").trim();
+if(n.length<2||!/^[6-9]\d{9}$/.test(m)){alert("कृपया सही नाम और 10 अंकों का मोबाइल नंबर लिखें");return}
+if(!$("cs").checked){alert("कृपया सहमति दें");return}
+if(!OK){alert("अभी ऑनलाइन फ़ॉर्म चालू नहीं हुआ है। कृपया 9509457194 पर कॉल करें।");return}
+var id=gen(),ex={};
+if(cur.c.loan)ex={cibil:v("cb"),income:v("inc"),employment:v("emp"),amount:v("amt")};
+var d={id:id,name:n,mobile:m,email:v("em").trim(),service:cur.o[0],category:cur.c.t,price:cur.o[1],details:v("dt"),extra:ex,payRef:v("pr").trim(),paymentStatus:"Pending",status:"Received",consent:true,createdAt:firebase.firestore.FieldValue.serverTimestamp(),history:[{s:"Received",t:Date.now()}]};
+$("sb").disabled=true;$("sb").textContent="भेज रहे हैं...";
+db.collection("applications").doc(id).set(d).then(function(){
+show('<h3 style="color:#ffc633">✅ सफलतापूर्वक सबमिट</h3><p class="note" style="font-size:14px">आपकी रिक्वेस्ट DIGITAL QA पर सफलतापूर्वक सबमिट हो गई है। आपकी Application ID सुरक्षित रखें।</p><div class="upi">'+id+'</div><p class="note">स्टेटस देखने के लिए यह ID और अपना मोबाइल नंबर इस्तेमाल करें। ज़रूरत होने पर हम आपसे संपर्क करेंगे।</p>')
+}).catch(function(){alert("रिक्वेस्ट नहीं जा पाई। इंटरनेट जाँचकर दोबारा कोशिश करें या WhatsApp पर संपर्क करें।");$("sb").disabled=false;$("sb").textContent="Submit करें"})}
+var L={Received:"रिक्वेस्ट प्राप्त हुई",Pending:"समीक्षा जारी (Pending)",Approved:"मंज़ूर (Approved)",Rejected:"अस्वीकृत (Rejected)",Completed:"काम पूरा हुआ"};
+function trk(){
+var id=v("ti").trim().toUpperCase(),m=v("tm").trim(),o=$("to");
+if(!id||!m){o.innerHTML='<p class="note">ID और मोबाइल नंबर दोनों लिखें।</p>';return}
+o.innerHTML='<p class="note">खोज रहे हैं...</p>';
+db.collection("applications").doc(id).get().then(function(s){
+if(!s.exists||s.data().mobile!==m){o.innerHTML='<p class="note">⚠️ कोई रिक्वेस्ट नहीं मिली। ID और नंबर जाँचें।</p>';return}
+var d=s.data(),t='<p style="margin-top:12px"><b>'+esc(d.service)+'</b><br><span class="note">पेमेंट: '+esc(d.paymentStatus)+'</span></p><ul class="tl">';
+(d.history||[]).forEach(function(e){t+='<li>'+(L[e.s]||esc(e.s))+'<small>'+new Date(e.t).toLocaleString("hi-IN")+'</small></li>'});
+o.innerHTML=t+'</ul>'}).catch(function(){o.innerHTML='<p class="note">अभी स्टेटस नहीं मिल पाया। थोड़ी देर बाद कोशिश करें।</p>'})}
+</script>
+</body>
+</html>
