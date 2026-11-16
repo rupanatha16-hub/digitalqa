@@ -3,41 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
 <meta name="robots" content="noindex,nofollow">
 <title>DIGITAL QA - Admin</title>
 <style>
-:root{--n:#19c3ff;--g:#ffc633}
+:root{--bg:#161616;--card:#1f1f1e;--bd:#ffffff24;--tx:#ece9e1;--tx2:#a8a59c;--inp:#121212;--ac-b:#10294a;--ac-t:#8ec1f7;--su-b:#12301a;--su-t:#7bd896;--da-b:#3a1616;--da-t:#f29a9a;--wa-b:#3a2a0a;--wa-t:#eab656;--wa-bd:#b8861b}
+@media(prefers-color-scheme:light){:root{--bg:#f4f3ee;--card:#ffffff;--bd:#00000026;--tx:#1d1d1b;--tx2:#5f5e5a;--inp:#ffffff;--ac-b:#e6f1fb;--ac-t:#0c447c;--su-b:#eaf3de;--su-t:#27500a;--da-b:#fcebeb;--da-t:#791f1f;--wa-b:#faeeda;--wa-t:#633806;--wa-bd:#ba7517}}
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Arial,sans-serif}
-body{background:radial-gradient(circle at 50% 0,#0b2a63,#050b1a 55%) fixed;color:#e8f1ff;padding:12px;min-height:100vh}
-h1{font-size:20px;color:var(--n);margin-bottom:10px}
-.card{background:#0c1a3acc;border:1px solid #19c3ff55;border-radius:14px;padding:14px;margin-bottom:12px}
-.new{border:2px solid var(--g);box-shadow:0 0 14px #ffc63355}
-input,select,textarea{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #19c3ff66;background:#07122b;color:#fff;font-size:15px}
-label{font-size:13px;color:#9db6dd}
-.b{background:linear-gradient(135deg,#19c3ff,#2563eb);color:#fff;border:0;border-radius:20px;padding:9px 16px;font-weight:700;cursor:pointer;font-size:14px;text-decoration:none;display:inline-block;margin:3px 3px 3px 0}
-.g{background:linear-gradient(135deg,#ffc633,#ff9d00);color:#111}
-.gr{background:#25d366;color:#fff}
-.rd{background:#ef4444;color:#fff}
-.ok{background:#16a34a;color:#fff;font-size:16px;padding:11px 18px}
-.no{background:#dc2626;color:#fff;font-size:16px;padding:11px 18px}
-.mid{background:#334155;color:#fff}
-.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.note{font-size:12px;color:#9db6dd;margin:4px 0}
-.msg{font-size:13px;color:#ffe29a;margin:6px 0}
-.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;margin-right:4px}
-.s-Received{background:#2563eb}.s-Pending{background:#ca8a04}.s-Approved{background:#16a34a}.s-Rejected{background:#dc2626}.s-Completed{background:#0d9488}
-.p-Pending{background:#ca8a04}.p-Paid{background:#16a34a}.p-Failed{background:#dc2626}
-.r{border-top:1px solid #ffffff14;padding-top:8px;margin-top:8px;font-size:14px;line-height:1.6}
-.r b{color:var(--g)}
+body{background:var(--bg);color:var(--tx);padding:12px;min-height:100vh;max-width:640px;margin:auto}
+h1{font-size:20px;font-weight:500;color:var(--ac-t)}
+.card{background:var(--card);border:0.5px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+.new{border:2px solid var(--wa-bd)}
+input,select,textarea{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:0.5px solid var(--bd);background:var(--inp);color:var(--tx);font-size:15px}
+textarea{min-height:64px;resize:vertical}
+label{font-size:13px;color:var(--tx2)}
+.pb{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:16px;border:0;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;margin:3px 3px 3px 0}
+.pb svg{flex:none}
+.ac{background:var(--ac-b);color:var(--ac-t)}
+.su{background:var(--su-b);color:var(--su-t)}
+.da{background:var(--da-b);color:var(--da-t)}
+.wa{background:var(--wa-b);color:var(--wa-t)}
+.ne{background:transparent;color:var(--tx);border:0.5px solid var(--bd)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.note{font-size:12px;color:var(--tx2);margin:4px 0}
+.msg{font-size:13px;color:var(--wa-t);margin:6px 0}
+.live{font-size:12px;color:var(--su-t);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--su-t);display:inline-block}
+.alert{display:none;align-items:center;justify-content:center;gap:8px;background:var(--su-b);color:var(--su-t);border:0.5px solid var(--su-t);padding:12px;border-radius:10px;margin-bottom:12px;font-weight:500;text-align:center;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.st{background:var(--card);border:0.5px solid var(--bd);border-radius:12px;padding:10px;text-align:center}
+.st b{display:block;font-size:22px;font-weight:500;color:var(--wa-t)}
+.st span{font-size:12px;color:var(--tx2)}
+.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;margin-right:4px}
+.s-Received{background:var(--ac-b);color:var(--ac-t)}
+.s-Pending,.p-Pending{background:var(--wa-b);color:var(--wa-t)}
+.s-Approved,.s-Completed,.p-Paid{background:var(--su-b);color:var(--su-t)}
+.s-Rejected,.p-Failed{background:var(--da-b);color:var(--da-t)}
+.r{border-top:0.5px solid var(--bd);padding-top:8px;margin-top:8px;font-size:14px;line-height:1.6}
+.r b{color:var(--wa-t);font-weight:500}
 .sec{display:none}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
-.st{background:#0c1a3acc;border:1px solid #19c3ff55;border-radius:14px;padding:10px;text-align:center}
-.st b{display:block;font-size:22px;color:var(--g)}
-.st span{font-size:12px;color:#9db6dd}
-.alert{display:none;background:#16a34a;color:#fff;padding:12px;border-radius:12px;margin-bottom:12px;font-weight:700;text-align:center;cursor:pointer}
-.live{font-size:12px;color:#7ee2a1;margin-bottom:8px}
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#16a34a;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;display:none;z-index:9}
-textarea{min-height:60px;resize:vertical}
 </style>
 </head>
 <body>
@@ -46,13 +51,13 @@ textarea{min-height:60px;resize:vertical}
 <h1>Admin Login</h1>
 <label>Email</label><input id="em" type="email" autocomplete="username">
 <label>Password</label><input id="pw" type="password" autocomplete="current-password">
-<button class="b g" onclick="login()">Login</button>
+<button class="pb wa" onclick="login()">Login</button>
 <div class="msg" id="lm"></div>
 </div>
 
 <div id="ad" class="sec">
-<div class="top"><h1>DIGITAL QA - Admin</h1><button class="b rd" onclick="logout()">Logout</button></div>
-<div class="live">🟢 Live: new requests appear automatically</div>
+<div class="top"><h1>DIGITAL QA - Admin</h1><button class="pb da" onclick="logout()"><span data-ic="out"></span>Logout</button></div>
+<div class="live"><span class="dot"></span>Live: new requests appear automatically</div>
 <div class="alert" id="al" onclick="clearAl()"></div>
 
 <div class="stats">
@@ -88,6 +93,23 @@ var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function toast(m){var t=$("toast");t.textContent=m;t.style.display="block";setTimeout(function(){t.style.display="none"},2000)}
 
+var IC={
+bell:["M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6","M9 17v1a3 3 0 0 0 6 0v-1"],
+phone:["M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"],
+wa:["M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9","M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"],
+save:["M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2","M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0","M14 4l0 4l-6 0l0 -4"],
+ok:["M5 12l5 5l10 -10"],
+x:["M18 6l-12 12","M6 6l12 12"],
+clock:["M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0","M12 7v5l3 3"],
+done:["M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0","M9 12l2 2l4 -4"],
+cash:["M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z","M14 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0","M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"],
+fail:["M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0","M12 8v4","M12 16h.01"],
+out:["M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2","M9 12h12l-3 -3","M18 15l3 -3"]
+};
+function ic(n){return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IC[n].map(function(d){return '<path d="'+d+'"/>'}).join("")+'</svg>'}
+function bt(c,i,l,f){return '<button class="pb '+c+'" onclick="'+f+'">'+ic(i)+l+'</button>'}
+document.querySelectorAll("[data-ic]").forEach(function(e){e.outerHTML=ic(e.getAttribute("data-ic"))});
+
 function login(){
 var e=$("em").value.trim(),p=$("pw").value;
 if(!e||!p){$("lm").textContent="Please enter email and password";return}
@@ -117,8 +139,8 @@ stats();safeDraw()},
 function(){$("cnt").textContent="Could not load the list. Check Rules or internet."})}
 
 function showAl(){
-$("al").textContent="🔔 "+fresh+" new request"+(fresh>1?"s":"")+" received! Tap to dismiss";
-$("al").style.display="block";
+$("al").innerHTML=ic("bell")+'<span>'+fresh+' new request'+(fresh>1?'s':'')+' received! Tap to dismiss</span>';
+$("al").style.display="flex";
 document.title="("+fresh+") New request - DIGITAL QA";
 try{if(navigator.vibrate)navigator.vibrate(200)}catch(e){}}
 function clearAl(){fresh=0;$("al").style.display="none";document.title="DIGITAL QA - Admin"}
@@ -152,23 +174,20 @@ if(q&&((d.name||"")+" "+(d.mobile||"")+" "+(d.id||"")).toLowerCase().indexOf(q)<
 n++;
 var t=d.createdAt&&d.createdAt.toDate?d.createdAt.toDate().toLocaleString("en-IN"):"";
 var x=d.extra||{},ex="";
-if(x.cibil||x.income||x.employment||x.amount)ex='<br>🏦 CIBIL: '+esc(x.cibil)+' | Income: ₹'+esc(x.income)+' | Work: '+esc(x.employment)+' | Amount: ₹'+esc(x.amount);
+if(x.cibil||x.income||x.employment||x.amount)ex='<br><b>Loan info:</b> CIBIL '+esc(x.cibil)+' | Income ₹'+esc(x.income)+' | Work '+esc(x.employment)+' | Amount ₹'+esc(x.amount);
 var wa="https://wa.me/91"+esc(d.mobile)+"?text="+encodeURIComponent("नमस्ते "+(d.name||"")+", मेरा नाम रूपनाथ है और मुझे आपकी रिक्वेस्ट मिल गई है, बताइए क्या करना है।");
 var id=esc(d.id);
-o+='<div class="card'+(d.status==="Received"?' new':'')+'"><b style="color:#19c3ff">'+id+'</b> <span class="note">'+esc(t)+'</span><br>'+
+o+='<div class="card'+(d.status==="Received"?' new':'')+'"><b style="color:var(--ac-t);font-weight:500">'+id+'</b> <span class="note">'+esc(t)+'</span><br>'+
 '<span class="tag s-'+esc(d.status)+'">'+esc(d.status)+'</span><span class="tag p-'+esc(d.paymentStatus)+'">Payment: '+esc(d.paymentStatus)+'</span>'+
 '<div class="r"><b>Name:</b> '+esc(d.name)+'<br><b>Mobile:</b> '+esc(d.mobile)+(d.email?'<br><b>Email:</b> '+esc(d.email):'')+
 '<br><b>Service:</b> '+esc(d.service)+'<br><b>Fee:</b> '+(d.price?'₹'+esc(d.price):'Contact')+
 '<br><b>Payment Ref:</b> '+esc(d.payRef||"-")+'<br><b>Details:</b> '+esc(d.details||"-")+ex+'</div>'+
-'<div class="r"><button class="b ok" onclick="setS(\''+id+'\',\'Approved\')">✅ Approve</button>'+
-'<button class="b no" onclick="setS(\''+id+'\',\'Rejected\')">❌ Reject</button><br>'+
-'<button class="b mid" onclick="setS(\''+id+'\',\'Pending\')">⏳ Pending</button>'+
-'<button class="b mid" onclick="setS(\''+id+'\',\'Completed\')">🏁 Completed</button></div>'+
-'<div class="r"><button class="b ok" onclick="setP(\''+id+'\',\'Paid\')">💰 Payment received</button>'+
-'<button class="b no" onclick="setP(\''+id+'\',\'Failed\')">Payment failed</button></div>'+
+'<div class="r">'+bt("su","ok","Approve","setS(\''+id+'\',\'Approved\')")+bt("da","x","Reject","setS(\''+id+'\',\'Rejected\')")+
+bt("ne","clock","Pending","setS(\''+id+'\',\'Pending\')")+bt("ne","done","Completed","setS(\''+id+'\',\'Completed\')")+'</div>'+
+'<div class="r">'+bt("su","cash","Payment received","setP(\''+id+'\',\'Paid\')")+bt("da","fail","Payment failed","setP(\''+id+'\',\'Failed\')")+'</div>'+
 '<div class="r"><b>My note</b><textarea id="nt_'+id+'" placeholder="Write a note...">'+esc(d.adminNote||"")+'</textarea>'+
-'<button class="b g" onclick="saveNote(\''+id+'\')">💾 Save note</button></div>'+
-'<div class="r"><a class="b" href="tel:'+esc(d.mobile)+'">📞 Call</a><a class="b gr" target="_blank" rel="noopener" href="'+wa+'">💬 WhatsApp</a></div></div>'});
+bt("wa","save","Save note","saveNote(\''+id+'\')")+'</div>'+
+'<div class="r"><a class="pb ac" href="tel:'+esc(d.mobile)+'">'+ic("phone")+'Call</a><a class="pb su" target="_blank" rel="noopener" href="'+wa+'">'+ic("wa")+'WhatsApp</a></div></div>'});
 $("ls").innerHTML=o||'<div class="card note">No requests found.</div>';
 $("cnt").textContent="Showing: "+n+" / "+DATA.length}
 
