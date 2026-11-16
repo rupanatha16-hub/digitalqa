@@ -2,192 +2,535 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DIGITAL QA - Digital Services, Kekri</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIGITAL QA - Premium Digital Services</title>
 <style>
-:root{--n:#19c3ff;--g:#ffc633}
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Arial,sans-serif}
-body{background:radial-gradient(circle at 50% 0,#0b2a63,#050b1a 55%) fixed;color:#e8f1ff}
-header{display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between;align-items:center;padding:10px 14px;position:sticky;top:0;background:#050b1ae6;border-bottom:1px solid #19c3ff44;z-index:5}
-.lg{font-weight:800;font-size:22px;color:var(--n);text-shadow:0 0 12px #19c3ff}.lg b{color:var(--g)}
-nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-nav a{color:#cfe6ff;text-decoration:none;font-size:14px}
-.lb{padding:6px 12px;font-size:13px}
-.hero{text-align:center;padding:44px 16px}
-.hero h1{font-size:30px;color:#fff;text-shadow:0 0 18px #19c3ff}
-.hero p{color:var(--g);margin:10px 0 20px;font-size:17px}
-.b{background:linear-gradient(135deg,#19c3ff,#2563eb);color:#fff;border:0;border-radius:24px;padding:11px 20px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 0 14px #19c3ff88;font-size:15px}
-.g{background:linear-gradient(135deg,#ffc633,#ff9d00);color:#111;box-shadow:0 0 14px #ffc63388}
-.ok{background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;border:0;border-radius:16px;padding:8px 14px;font-weight:700;cursor:pointer;font-size:14px}
-section{max-width:1000px;margin:auto;padding:26px 14px}
-h2{text-align:center;color:var(--g);margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
-.card{background:#0c1a3acc;border:1px solid #19c3ff55;border-radius:16px;padding:16px;box-shadow:0 0 18px #19c3ff22}
-.ic{font-size:36px}.card h3{color:var(--n);font-size:20px;margin:4px 0 2px}
-.d{font-size:13px;color:#9db6dd;margin-bottom:8px}
-.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;border-top:1px solid #ffffff14;font-size:15px}
-.row span{flex:1 1 140px}.row b{color:var(--g)}
-input,select,textarea{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #19c3ff66;background:#07122b;color:#fff;font-size:15px}
-label{font-size:13px;color:#9db6dd}
-#md{position:fixed;inset:0;background:#000c;display:none;overflow:auto;z-index:20;padding:14px}
-#mb{background:#0a1633;border:1px solid var(--n);border-radius:16px;padding:18px;max-width:460px;margin:auto}
-.note{font-size:12px;color:#9db6dd;margin:6px 0;line-height:1.5}
-.warn{background:#ffc63318;border:1px solid #ffc63366;border-radius:10px;padding:10px;font-size:13px;color:#ffe29a;margin:10px 0}
-.tl{list-style:none;border-left:2px solid var(--n);margin:12px 0 0 6px;padding-left:14px}
-.tl li{margin-bottom:10px;font-size:14px}.tl small{display:block;color:#9db6dd}
-.pay{text-align:center}.upi{font-size:20px;color:var(--g);font-weight:700;margin:8px 0;word-break:break-all}
-.sup p{margin:10px 0;font-size:16px}.sup a:not(.b){color:var(--n);text-decoration:none}
-footer{text-align:center;padding:22px 14px 90px;background:#030814;font-size:13px;color:#9db6dd;line-height:2}
-footer a{color:var(--n);margin:0 6px;cursor:pointer}
-.wa{position:fixed;right:14px;bottom:14px;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:6;animation:p 2s infinite}
-@keyframes p{0%{box-shadow:0 0 0 0 #25d366aa}70%{box-shadow:0 0 0 16px #25d36600}100%{box-shadow:0 0 0 0 #25d36600}}
-@media(prefers-reduced-motion:reduce){.wa{animation:none}}
+:root{
+ --blue:#08bfff;
+ --gold:#ffca28;
+ --navy:#02091c;
+ --card:#071b3b;
+ --white:#eef7ff;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{
+ background:radial-gradient(ellipse at top,#103c85 0%,#06132e 48%,#020817 100%);
+ color:var(--white);
+}
+header{
+ position:sticky;top:0;z-index:10;
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:12px;padding:12px 4%;
+ background:#02091cf2;
+ border-bottom:2px solid #08bfff;
+ box-shadow:0 3px 25px #08bfff55;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+ width:62px;height:62px;border-radius:50%;
+ display:flex;align-items:center;justify-content:center;
+ border:3px solid var(--blue);
+ box-shadow:0 0 18px var(--blue);
+ font-size:25px;font-weight:900;font-style:italic;
+ color:var(--blue);
+}
+.brand h2{font-size:27px;color:var(--blue);line-height:1.1}
+.brand small{color:var(--gold);font-weight:bold;font-size:14px}
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px;font-weight:bold}
+nav a:hover{color:var(--gold)}
+button,.btn{cursor:pointer}
+.btn{
+ display:inline-block;border:0;text-decoration:none;
+ border-radius:30px;padding:12px 23px;font-weight:bold;
+ background:linear-gradient(120deg,#00c8ff,#1264ff);
+ color:white;box-shadow:0 0 17px #08bfff99;
+}
+.gold{
+ background:linear-gradient(120deg,#ffe45c,#ffae00);
+ color:#111;box-shadow:0 0 18px #ffca2888;
+}
+.hero{
+ min-height:350px;padding:42px 5%;
+ display:grid;grid-template-columns:1.2fr 1fr;
+ align-items:center;gap:25px;overflow:hidden;
+ background:
+ radial-gradient(ellipse at 75% 50%,#0876d955,transparent 55%),
+ linear-gradient(120deg,#061633,#073b83,#03132f);
+ border-bottom:2px solid #087dff;
+}
+.hero h1{font-size:clamp(34px,5vw,58px);font-weight:900;line-height:1.05}
+.hero h1 span{color:var(--blue);text-shadow:0 0 20px #00bfff}
+.hero p{color:var(--gold);font-size:clamp(17px,2vw,24px);font-weight:bold;margin:17px 0}
+.hero .sub{color:white;font-size:17px;margin:12px 0 22px}
+.hero-art{
+ min-height:240px;display:flex;align-items:center;justify-content:center;
+ position:relative;
+}
+.laptop{
+ width:min(100%,390px);height:210px;position:relative;
+ border:5px solid #36caff;border-radius:17px 17px 8px 8px;
+ background:linear-gradient(145deg,#071b4c,#020817);
+ box-shadow:0 0 35px #00bfff, inset 0 0 30px #087dff55;
+ display:flex;align-items:center;justify-content:center;
+ transform:perspective(700px) rotateY(-8deg);
+}
+.laptop:after{
+ content:"";position:absolute;bottom:-18px;left:-7%;
+ width:114%;height:16px;border-radius:3px 3px 18px 18px;
+ background:linear-gradient(#d4f7ff,#277cbd,#07152b);
+}
+.laptop-content{text-align:center}
+.laptop-content strong{display:block;color:var(--blue);font-size:30px}
+.laptop-content span{color:var(--gold);font-weight:bold}
+.hero-points{position:absolute;right:0;top:5px;line-height:2.5;font-weight:bold}
+.hero-points span{color:#22e878;font-size:21px}
+section{max-width:1200px;margin:auto;padding:30px 18px}
+.section-title{
+ text-align:center;font-size:30px;margin-bottom:24px;
+ color:#eafaff;text-shadow:0 0 15px #08bfff;
+}
+.section-title:before,.section-title:after{
+ content:"";display:inline-block;width:75px;height:3px;
+ background:var(--gold);vertical-align:middle;margin:0 17px;
+}
+.grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;
+}
+.card{
+ background:linear-gradient(145deg,#0b2b58dd,#06142f);
+ border:1px solid #159fff;border-radius:17px;
+ padding:18px;box-shadow:0 0 15px #008cff33;
+ transition:.2s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 0 23px #00aaff88}
+.service{text-align:center;min-height:190px}
+.ic{font-size:42px;margin-bottom:7px;filter:drop-shadow(0 0 7px #08bfff)}
+.card h3{color:#d9f5ff;font-size:18px;margin:5px 0}
+.desc{font-size:13px;color:#c0d5f4;min-height:35px;margin-bottom:10px}
+.row{
+ display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+ border-top:1px solid #ffffff1a;padding:10px 0;font-size:13px;
+}
+.row span{flex:1 1 120px}
+.row b{color:var(--gold)}
+.apply{
+ background:linear-gradient(120deg,#00c8ff,#1264ff);
+ color:white;border:0;border-radius:25px;padding:9px 14px;
+ font-weight:bold;white-space:nowrap;
+}
+.bottom-grid{
+ display:grid;grid-template-columns:1.1fr 1.5fr 1fr;gap:15px;
+}
+.bottom-grid .card{min-height:205px}
+.bottom-grid h3{color:var(--gold);font-size:21px}
+input,textarea,select{
+ width:100%;padding:12px;margin:6px 0;border-radius:9px;
+ border:1px solid #20baff;background:#06132c;color:white;font-size:15px;
+}
+label{font-size:13px;color:#c4d8f5}
+.upi{font-size:19px;font-weight:bold;color:var(--gold);margin:12px 0;word-break:break-all}
+.note{font-size:12px;color:#b7cce9;line-height:1.5;margin:8px 0}
+.warn{
+ background:#ffc63318;border:1px solid #ffc63377;
+ border-radius:10px;padding:11px;color:#ffe29a;font-size:13px;margin:12px 0;
+}
+.sup p{margin:11px 0;font-size:14px;overflow-wrap:anywhere}
+.sup a:not(.btn){color:#d5efff;text-decoration:none}
+#tr{display:none}
+#md{
+ position:fixed;inset:0;background:#000d;display:none;
+ overflow:auto;z-index:30;padding:15px;
+}
+#mb{
+ max-width:460px;margin:25px auto;background:#071a39;
+ border:1px solid var(--blue);border-radius:17px;padding:20px;
+ box-shadow:0 0 25px #08bfff66;
+}
+.tl{border-left:2px solid var(--blue);padding-left:18px;margin:15px}
+.tl li{margin:12px 0;font-size:14px}
+.tl small{display:block;color:#a9c4e8}
+footer{
+ text-align:center;background:#020817;padding:24px 12px 85px;
+ color:#a9c4e8;font-size:13px;line-height:2;
+ border-top:2px solid #087dff;
+}
+footer b{font-size:25px;color:var(--blue)}
+footer a{color:#d9efff;margin:0 8px;cursor:pointer}
+.wa{
+ position:fixed;right:17px;bottom:17px;width:60px;height:60px;
+ border-radius:50%;background:#20d66b;color:white;
+ display:flex;align-items:center;justify-content:center;
+ font-size:29px;text-decoration:none;z-index:15;
+ box-shadow:0 0 20px #20d66b;
+}
+@media(max-width:850px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .bottom-grid{grid-template-columns:1fr 1fr}
+ .bottom-grid .sup{grid-column:1/-1}
+}
+@media(max-width:600px){
+ header{justify-content:center}
+ nav{justify-content:center;gap:12px}
+ .hero{grid-template-columns:1fr;text-align:center;padding:32px 16px}
+ .hero-art{min-height:210px}
+ .hero-points{display:none}
+ .grid{grid-template-columns:1fr 1fr;gap:9px}
+ .service{padding:12px 8px;min-height:180px}
+ .ic{font-size:34px}
+ .card h3{font-size:15px}
+ .desc{font-size:12px}
+ .bottom-grid{grid-template-columns:1fr}
+ .bottom-grid .sup{grid-column:auto}
+ .section-title{font-size:24px}
+ .section-title:before,.section-title:after{width:25px;margin:0 7px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none}}
 </style>
 </head>
 <body>
-<header><div class="lg">DIGITAL <b>QA</b></div><nav><a href="#sv" data-k="nS"></a><a href="#sup" data-k="nC"></a><a href="#pay" id="npy" data-k="nP"></a><a href="#tr" id="ntr" onclick="return showTr()" data-k="nT"></a><button class="b g lb" id="lb" onclick="setL()"></button></nav></header>
+
+<header>
+ <div class="brand">
+  <div class="logo">DQ</div>
+  <div><h2>DIGITAL QA</h2><small>Premium Digital Services</small></div>
+ </div>
+ <nav>
+  <a href="#">⌂ Home</a>
+  <a href="#sv">▣ Services</a>
+  <a href="#sup">♧ Support</a>
+  <a href="#pay">▤ Payment</a>
+  <a href="#tr" onclick="return showTr()">⌕ Track</a>
+  <button class="btn gold" id="lb" onclick="setL()">हिंदी</button>
+ </nav>
+</header>
 
 <div class="hero">
-<h1 data-k="h1"></h1>
-<p data-k="h2"></p>
-<a class="b g" href="#sv" data-k="b1"></a> <a class="b" href="#tr" onclick="return showTr()" data-k="b2"></a>
+ <div>
+  <h1>Welcome to<br><span>DIGITAL QA</span></h1>
+  <p>All Your Digital Services in One Place</p>
+  <div class="sub">Apply &nbsp; • &nbsp; Track &nbsp; • &nbsp; Pay &nbsp; • &nbsp; Get Support</div>
+  <a class="btn" href="#sv">🚀 View Services →</a>
+  <a class="btn gold" href="#tr" onclick="return showTr()">⌕ Track Application →</a>
+ </div>
+ <div class="hero-art">
+  <div class="laptop"><div class="laptop-content">
+   <strong>DQ</strong><span>DIGITAL QA</span>
+  </div></div>
+  <div class="hero-points">
+   <div><span>✔</span> Fast Service</div>
+   <div><span>✔</span> Secure & Safe</div>
+   <div><span>✔</span> Trusted Center</div>
+  </div>
+ </div>
 </div>
 
-<section id="tr" style="display:none"><p style="text-align:center;margin-bottom:10px"><button class="b g" onclick="hideTr()" data-k="bk"></button></p><h2 data-k="tr"></h2>
-<div class="card"><label data-k="ai"></label><input id="ti" placeholder="e.g. DQ8K2M4XQ7">
-<label data-k="mo"></label><input id="tm" type="tel" maxlength="10">
-<button class="b" onclick="trk()" data-k="ck"></button><div id="to"></div><p style="margin-top:14px"><button class="b g" onclick="hideTr()" data-k="bk"></button></p></div></section>
-
-<section id="sv"><h2 data-k="sv"></h2><div class="grid" id="gr"></div>
-<div class="warn" style="margin-top:16px" data-k="loan"></div>
-<div class="warn" data-k="dis"></div>
+<section id="tr">
+ <p style="text-align:center;margin-bottom:12px">
+  <button class="btn gold" onclick="hideTr()" data-k="bk"></button>
+ </p>
+ <h2 class="section-title" data-k="tr"></h2>
+ <div class="card">
+  <label data-k="ai"></label>
+  <input id="ti" placeholder="e.g. DQ8K2M4XQ7">
+  <label data-k="mo"></label>
+  <input id="tm" type="tel" maxlength="10">
+  <button class="btn" onclick="trk()" data-k="ck"></button>
+  <div id="to"></div>
+ </div>
 </section>
 
-<section id="sup"><h2 data-k="sup"></h2>
-<div class="card sup">
-<p><a href="tel:+919509457194">📞 9509457194</a></p>
-<p><a href="mailto:rrupnath14@gmail.com">✉️ rrupnath14@gmail.com</a></p>
-<p data-k="ad"></p><p data-k="hr"></p>
-<a class="b" id="wa3" href="#">💬 WhatsApp</a>
-</div></section>
+<section id="sv">
+ <h2 class="section-title" data-k="sv"></h2>
+ <div class="grid" id="gr"></div>
+ <div class="warn" style="margin-top:17px" data-k="loan"></div>
+ <div class="warn" data-k="dis"></div>
+</section>
 
-<section id="pay"><h2 data-k="pay"></h2>
-<div class="card pay"><p data-k="pd"></p><div class="upi" id="upi"></div>
-<button class="b" onclick="cp()" data-k="cp"></button>
-<p class="note" data-k="pn"></p></div></section>
+<section>
+ <div class="bottom-grid">
+  <div class="card" id="trackbox">
+   <h3>⌕ <span data-k="tr"></span></h3>
+   <p class="note">Enter your Application ID & Mobile Number</p>
+   <input id="ti2" placeholder="Application ID">
+   <input id="tm2" type="tel" maxlength="10" placeholder="Mobile Number">
+   <button class="btn gold" onclick="track2()">Check Status ⌕</button>
+   <div id="to2"></div>
+  </div>
+  <div class="card pay" id="pay">
+   <h3>▤ <span data-k="pay"></span></h3>
+   <p class="note" data-k="pd"></p>
+   <div class="upi" id="upi"></div>
+   <button class="btn gold" onclick="cp()" data-k="cp"></button>
+   <p class="note" data-k="pn"></p>
+  </div>
+  <div class="card sup" id="sup">
+   <h3>♧ <span data-k="sup"></span></h3>
+   <p><a href="tel:+919509457194">📞 9509457194</a></p>
+   <p><a href="mailto:rrupnath14@gmail.com">✉️ rrupnath14@gmail.com</a></p>
+   <p data-k="ad"></p><p data-k="hr"></p>
+   <a class="btn" id="wa3" href="#">💬 WhatsApp Us</a>
+  </div>
+ </div>
+</section>
 
+<footer>
+ <b>DIGITAL QA</b><br>
+ Owner: Rupnath<br>
+ Ranjeetpura, Kekri, Ajmer, Rajasthan | 9509457194<br>
+ <a onclick="info('about')">About Us</a>
+ <a onclick="info('contact')">Contact Us</a>
+ <a onclick="info('privacy')">Privacy Policy</a>
+ <a onclick="info('terms')">Terms &amp; Conditions</a>
+ <a onclick="info('refund')">Refund Policy</a>
+ <hr style="border-color:#ffffff22;margin:12px">
+ © 2026 DIGITAL QA. All Rights Reserved.
+</footer>
 
-
-<footer><b style="color:#fff">DIGITAL QA</b><br>Owner: Rupnath | Ranjeetpura, Kekri, Ajmer, Rajasthan | 📞 9509457194<br>
-<a onclick="info('about')">About Us</a><a onclick="info('contact')">Contact Us</a><a onclick="info('privacy')">Privacy Policy</a><a onclick="info('terms')">Terms &amp; Conditions</a><a onclick="info('refund')">Refund Policy</a></footer>
-
-<a class="wa" id="wa2" href="#">💬</a>
+<a class="wa" id="wa2" href="#">☏</a>
 <div id="md"><div id="mb"></div></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 var C={wa:"919509457194",upi:"rupanatha16@okicici"};
-var FB={apiKey:"AIzaSyDgvmTp_r5QApbrsF4wIc7Oulxxofp_Zm4",authDomain:"digitalqa-1e726.firebaseapp.com",projectId:"digitalqa-1e726",appId:"1:608838619299:web:9de318e69cf03953076f16"};
-var OK=FB.apiKey!=="PASTE_HERE",db=null,UP=C.upi.indexOf("UPI-ID")<0;if(OK){try{firebase.initializeApp(FB);db=firebase.firestore()}catch(e){OK=false}}
-var LG="en";try{LG=localStorage.getItem("lg")==="hi"?"hi":"en"}catch(e){}
+var FB={
+ apiKey:"AIzaSyDgvmTp_r5QApbrsF4wIc7Oulxxofp_Zm4",
+ authDomain:"digitalqa-1e726.firebaseapp.com",
+ projectId:"digitalqa-1e726",
+ appId:"1:608838619299:web:9de318e69cf03953076f16"
+};
+var OK=FB.apiKey!=="PASTE_HERE",db=null,UP=C.upi.indexOf("UPI-ID")<0;
+if(OK){try{firebase.initializeApp(FB);db=firebase.firestore()}catch(e){OK=false}}
+var LG="en";
+try{LG=localStorage.getItem("lg")==="hi"?"hi":"en"}catch(e){}
+
 var T={
 nS:["Services","सेवाएँ"],nC:["Support","सहायता"],nP:["Payment","पेमेंट"],nT:["🔎 Track","🔎 ट्रैक करें"],
 h1:["Welcome to DIGITAL QA","DIGITAL QA में आपका स्वागत है"],
 h2:["All your digital services in one place","आपकी सभी डिजिटल सेवाएँ, एक ही जगह"],
-b1:["View Services","सेवाएँ देखें"],b2:["🔎 Track Application","🔎 आवेदन ट्रैक करें"],sv:["Our Services","हमारी सेवाएँ"],
+b1:["View Services","सेवाएँ देखें"],b2:["🔎 Track Application","🔎 आवेदन ट्रैक करें"],
+sv:["Our Services","हमारी सेवाएँ"],
 loan:["🏦 Loan Assistance is available for customers with a 700+ CIBIL score. Approval depends on the bank/lender's terms; a 700+ score does not guarantee approval.","🏦 700+ CIBIL Score वाले ग्राहकों के लिए Loan Assistance उपलब्ध है। मंज़ूरी बैंक/लेंडर की शर्तों पर निर्भर है, 700+ स्कोर से मंज़ूरी की गारंटी नहीं है।"],
 dis:["ℹ️ We are a private service centre, not a government department.","ℹ️ हम निजी सेवा केंद्र हैं, सरकारी विभाग नहीं।"],
 sup:["Customer Support","कस्टमर सपोर्ट"],
 ad:["📍 Ranjeetpura, Kekri, Ajmer, Rajasthan","📍 रंजीतपुरा, केकड़ी, अजमेर, राजस्थान"],
 hr:["🕙 Open 10 AM to 10 PM","🕙 सुबह 10 बजे से रात 10 बजे तक"],
-pay:["Payment","पेमेंट"],pd:["Pay by UPI","UPI से भुगतान करें"],cp:["Copy UPI ID","UPI ID कॉपी करें"],cd:["UPI ID copied","UPI ID कॉपी हो गई"],
+pay:["Payment","पेमेंट"],pd:["Pay by UPI","UPI से भुगतान करें"],
+cp:["Copy UPI ID","UPI ID कॉपी करें"],cd:["UPI ID copied","UPI ID कॉपी हो गई"],
 pn:["After paying, enter the Payment Reference ID in the form. We confirm payment after checking.","पेमेंट के बाद फ़ॉर्म में Payment Reference ID लिखें। पेमेंट की पुष्टि हमारी तरफ़ से जाँच के बाद ही होती है।"],
-tr:["🔎 Track Application","🔎 आवेदन ट्रैक करें"],ai:["Application ID","Application ID"],mo:["Mobile number","मोबाइल नंबर"],ck:["Check Status","स्टेटस देखें"],
+tr:["🔎 Track Application","🔎 आवेदन ट्रैक करें"],
+ai:["Application ID","Application ID"],mo:["Mobile number","मोबाइल नंबर"],ck:["Check Status","स्टेटस देखें"],
 ap:["Apply","आवेदन करें"],cn:["Contact us","संपर्क करें"],fee:["Fee: ","शुल्क: "],
-nm:["Full name *","पूरा नाम *"],em2:["Email (optional)","ईमेल (वैकल्पिक)"],dt:["What do you need done?","आपको क्या करवाना है?"],dp:["e.g. change my address","जैसे: पता बदलवाना है"],
+nm:["Full name *","पूरा नाम *"],em2:["Email (optional)","ईमेल (वैकल्पिक)"],
+dt:["What do you need done?","आपको क्या करवाना है?"],dp:["e.g. change my address","जैसे: पता बदलवाना है"],
 pr:["Payment Reference ID (after payment)","Payment Reference ID (पेमेंट के बाद)"],
 wn:["⚠️ Do not write OTP, password, Aadhaar or PAN number.","⚠️ OTP, पासवर्ड, आधार या पैन नंबर न लिखें।"],
 cs:["I consent to my information being used for this service. *","मैं अपनी जानकारी इस सेवा के लिए इस्तेमाल करने की सहमति देता/देती हूँ। *"],
 sb:["Submit","Submit करें"],sg:["Sending...","भेज रहे हैं..."],cl:["Close","बंद करें"],
-cr:["CIBIL score range","CIBIL स्कोर रेंज"],mi:["Monthly income (₹)","मासिक आय (₹)"],wk:["Type of work","काम का प्रकार"],am:["Loan amount needed (₹)","ज़रूरी लोन राशि (₹)"],ln:["Loan approval depends on the lender's terms.","लोन की मंज़ूरी लेंडर की शर्तों पर निर्भर है।"],
-e1:["Please enter a valid name and 10-digit mobile number","कृपया सही नाम और 10 अंकों का मोबाइल नंबर लिखें"],e2:["Please give your consent","कृपया सहमति दें"],
+cr:["CIBIL score range","CIBIL स्कोर रेंज"],mi:["Monthly income (₹)","मासिक आय (₹)"],
+wk:["Type of work","काम का प्रकार"],am:["Loan amount needed (₹)","ज़रूरी लोन राशि (₹)"],
+ln:["Loan approval depends on the lender's terms.","लोन की मंज़ूरी लेंडर की शर्तों पर निर्भर है।"],
+e1:["Please enter a valid name and 10-digit mobile number","कृपया सही नाम और 10 अंकों का मोबाइल नंबर लिखें"],
+e2:["Please give your consent","कृपया सहमति दें"],
 e3:["Online form is not active. Please call 9509457194.","अभी ऑनलाइन फ़ॉर्म चालू नहीं है। कृपया 9509457194 पर कॉल करें।"],
 e4:["Request failed. Check your internet and try again, or contact us on WhatsApp.","रिक्वेस्ट नहीं जा पाई। इंटरनेट जाँचकर दोबारा कोशिश करें या WhatsApp पर संपर्क करें।"],
-ok:["✅ Submitted successfully","✅ सफलतापूर्वक सबमिट"],ok2:["Your request has been submitted to DIGITAL QA. Keep your Application ID safe.","आपकी रिक्वेस्ट DIGITAL QA पर सबमिट हो गई है। अपनी Application ID सुरक्षित रखें।"],
+ok:["✅ Submitted successfully","✅ सफलतापूर्वक सबमिट"],
+ok2:["Your request has been submitted to DIGITAL QA. Keep your Application ID safe.","आपकी रिक्वेस्ट DIGITAL QA पर सबमिट हो गई है। अपनी Application ID सुरक्षित रखें।"],
 ok3:["Use this ID and your mobile number to track status. We will contact you if needed.","स्टेटस देखने के लिए यह ID और अपना मोबाइल नंबर इस्तेमाल करें। ज़रूरत होने पर हम संपर्क करेंगे।"],
-t1:["Enter both ID and mobile number.","ID और मोबाइल नंबर दोनों लिखें।"],t2:["Searching...","खोज रहे हैं..."],
-t3:["⚠️ No request found. Check ID and number.","⚠️ कोई रिक्वेस्ट नहीं मिली। ID और नंबर जाँचें।"],t4:["Could not fetch status. Try again later.","अभी स्टेटस नहीं मिल पाया। थोड़ी देर बाद कोशिश करें।"],vs:["🔊 Listen","🔊 सुनें"],vh:["No voice for this language on this phone. Try the other language and raise the media volume.","इस फ़ोन में इस भाषा की आवाज़ नहीं मिली। दूसरी भाषा चुनकर देखें और मीडिया आवाज़ बढ़ाएँ।"],vn:["Voice is not supported on this phone.","इस फ़ोन में आवाज़ की सुविधा नहीं है।"],vt:["Please write your full name here. Then write your mobile number. Then tell us what you need done. Then press Submit.","यहाँ अपना पूरा नाम लिखिए। फिर अपना मोबाइल नंबर लिखिए। फिर बताइए कि आपको क्या करवाना है। उसके बाद Submit दबाइए।"],ag:["By pressing Submit, you agree to us using your information for this service.","Submit दबाने का मतलब है कि आप इस सेवा के लिए अपनी जानकारी इस्तेमाल करने की सहमति देते हैं।"],py:["Payment: ","पेमेंट: "],bk:["⬅ Back to Home","⬅ होम पेज पर वापस"]
+t1:["Enter both ID and mobile number.","ID और मोबाइल नंबर दोनों लिखें।"],
+t2:["Searching...","खोज रहे हैं..."],
+t3:["⚠️ No request found. Check ID and number.","⚠️ कोई रिक्वेस्ट नहीं मिली। ID और नंबर जाँचें।"],
+t4:["Could not fetch status. Try again later.","अभी स्टेटस नहीं मिल पाया। थोड़ी देर बाद कोशिश करें।"],
+vs:["🔊 Listen","🔊 सुनें"],
+vh:["No voice for this language on this phone. Try the other language and raise the media volume.","इस फ़ोन में इस भाषा की आवाज़ नहीं मिली। दूसरी भाषा चुनकर देखें और मीडिया आवाज़ बढ़ाएँ।"],
+vn:["Voice is not supported on this phone.","इस फ़ोन में आवाज़ की सुविधा नहीं है।"],
+vt:["Please write your full name here. Then write your mobile number. Then tell us what you need done. Then press Submit.","यहाँ अपना पूरा नाम लिखिए। फिर अपना मोबाइल नंबर लिखिए। फिर बताइए कि आपको क्या करवाना है। उसके बाद Submit दबाइए।"],
+ag:["By pressing Submit, you agree to us using your information for this service.","Submit दबाने का मतलब है कि आप इस सेवा के लिए अपनी जानकारी इस्तेमाल करने की सहमति देते हैं।"],
+py:["Payment: ","पेमेंट: "],bk:["⬅ Back to Home","⬅ होम पेज पर वापस"]
 };
-var L={Received:["Request received","रिक्वेस्ट प्राप्त हुई"],Pending:["Under review (Pending)","समीक्षा जारी (Pending)"],Approved:["Approved","मंज़ूर (Approved)"],Rejected:["Rejected","अस्वीकृत (Rejected)"],Completed:["Work completed","काम पूरा हुआ"]};
+
+var L={
+ Received:["Request received","रिक्वेस्ट प्राप्त हुई"],
+ Pending:["Under review (Pending)","समीक्षा जारी (Pending)"],
+ Approved:["Approved","मंज़ूर (Approved)"],
+ Rejected:["Rejected","अस्वीकृत (Rejected)"],
+ Completed:["Work completed","काम पूरा हुआ"]
+};
+
 var S=[
-{i:"🪪",t:["Aadhaar Services","आधार सेवाएँ"],d:["Update mobile number, address and more","मोबाइल नंबर, पता आदि अपडेट"],o:[["Aadhaar Update (Mobile / Address)","आधार अपडेट (मोबाइल / पता)",199],["Other Aadhaar Correction","आधार में अन्य सुधार",0]]},
-{i:"💳",t:["PAN Card Services","पैन कार्ड सेवाएँ"],d:["New PAN card and corrections","नया पैन कार्ड और सुधार"],o:[["New PAN Card","नया पैन कार्ड",299],["PAN Card Correction","पैन कार्ड सुधार",199],["PAN Reprint / Replacement","पैन दोबारा प्रिंट / बदलना",0],["PAN Application Status","पैन आवेदन स्टेटस",0]]},
-{i:"🗳️",t:["Voter ID Services","वोटर आईडी सेवाएँ"],d:["New card, correction and status","नया कार्ड, सुधार और स्टेटस"],o:[["New Voter ID Card","नया वोटर आईडी",99],["Voter ID Correction","वोटर आईडी सुधार",40],["Voter ID Replacement","वोटर आईडी बदलना",0],["Voter ID Application Status","वोटर आईडी आवेदन स्टेटस",0]]},
-{i:"🏧",t:["Bank & Cards","बैंक और कार्ड"],d:["Open an online account in any bank, credit card help","किसी भी बैंक में ऑनलाइन खाता खुलवाएँ, क्रेडिट कार्ड में मदद"],o:[["Bank Account Opening","बैंक अकाउंट खुलवाना",0],["Credit Card Assistance","क्रेडिट कार्ड असिस्टेंस",0]]},
-{i:"🏦",loan:1,t:["Loan Assistance","लोन असिस्टेंस"],d:["Help with personal loans","पर्सनल लोन में मदद"],o:[["Personal Loan Assistance","पर्सनल लोन असिस्टेंस",0],["Loan Eligibility Check","लोन पात्रता जाँच",0]]},
-{i:"🩺",t:["Health Cards","हेल्थ कार्ड"],d:["Ayushman and health cards","आयुष्मान और हेल्थ कार्ड"],o:[["Ayushman Card","आयुष्मान कार्ड",30],["Health Card","हेल्थ कार्ड",20]]},
-{i:"📸",t:["Photos","फ़ोटो"],d:["Passport photos, editing, and photo orders at home","पासपोर्ट फ़ोटो, एडिटिंग और घर पर फ़ोटो ऑर्डर"],o:[["Passport Size Photo","पासपोर्ट साइज़ फ़ोटो",0],["Photo Editing","फ़ोटो एडिटिंग",0],["Photo Order (Home)","फ़ोटो ऑर्डर (घर पर)",0]]},
-{i:"📝",t:["Online Forms & Documents","ऑनलाइन फ़ॉर्म और दस्तावेज़"],d:["Online applications and document correction","ऑनलाइन आवेदन और दस्तावेज़ सुधार"],o:[["Online Application Service","ऑनलाइन एप्लीकेशन सेवा",0],["Document Correction Service","डॉक्यूमेंट करेक्शन सेवा",0]]}
+ {i:"🪪",t:["Aadhaar Services","आधार सेवाएँ"],d:["Update mobile number, address and more","मोबाइल नंबर, पता आदि अपडेट"],o:[
+ ["Aadhaar Update (Mobile / Address)","आधार अपडेट (मोबाइल / पता)",199],
+ ["Other Aadhaar Correction","आधार में अन्य सुधार",0]]},
+ {i:"💳",t:["PAN Card Services","पैन कार्ड सेवाएँ"],d:["New PAN card and corrections","नया पैन कार्ड और सुधार"],o:[
+ ["New PAN Card","नया पैन कार्ड",299],
+ ["PAN Card Correction","पैन कार्ड सुधार",199],
+ ["PAN Reprint / Replacement","पैन दोबारा प्रिंट / बदलना",0],
+ ["PAN Application Status","पैन आवेदन स्टेटस",0]]},
+ {i:"🗳️",t:["Voter ID Services","वोटर आईडी सेवाएँ"],d:["New card, correction and status","नया कार्ड, सुधार और स्टेटस"],o:[
+ ["New Voter ID Card","नया वोटर आईडी",99],
+ ["Voter ID Correction","वोटर आईडी सुधार",40],
+ ["Voter ID Replacement","वोटर आईडी बदलना",0],
+ ["Voter ID Application Status","वोटर आईडी आवेदन स्टेटस",0]]},
+ {i:"🏧",t:["Bank & Cards","बैंक और कार्ड"],d:["Open an online account in any bank, credit card help","किसी भी बैंक में ऑनलाइन खाता खुलवाएँ, क्रेडिट कार्ड में मदद"],o:[
+ ["Bank Account Opening","बैंक अकाउंट खुलवाना",0],
+ ["Credit Card Assistance","क्रेडिट कार्ड असिस्टेंस",0]]},
+ {i:"🏦",loan:1,t:["Loan Assistance","लोन असिस्टेंस"],d:["Help with personal loans","पर्सनल लोन में मदद"],o:[
+ ["Personal Loan Assistance","पर्सनल लोन असिस्टेंस",0],
+ ["Loan Eligibility Check","लोन पात्रता जाँच",0]]},
+ {i:"🩺",t:["Health Cards","हेल्थ कार्ड"],d:["Ayushman and health cards","आयुष्मान और हेल्थ कार्ड"],o:[
+ ["Ayushman Card","आयुष्मान कार्ड",30],
+ ["Health Card","हेल्थ कार्ड",20]]},
+ {i:"📸",t:["Photos","फ़ोटो"],d:["Passport photos, editing, and photo orders at home","पासपोर्ट फ़ोटो, एडिटिंग और घर पर फ़ोटो ऑर्डर"],o:[
+ ["Passport Size Photo","पासपोर्ट साइज़ फ़ोटो",0],
+ ["Photo Editing","फ़ोटो एडिटिंग",0],
+ ["Photo Order (Home)","फ़ोटो ऑर्डर (घर पर)",0]]},
+ {i:"📝",t:["Online Forms & Documents","ऑनलाइन फ़ॉर्म और दस्तावेज़"],d:["Online applications and document correction","ऑनलाइन आवेदन और दस्तावेज़ सुधार"],o:[
+ ["Online Application Service","ऑनलाइन एप्लीकेशन सेवा",0],
+ ["Document Correction Service","डॉक्यूमेंट करेक्शन सेवा",0]]}
 ];
+
 var P={
-about:"<h3>About Us</h3><p class='note'>DIGITAL QA, केकड़ी (अजमेर, राजस्थान) में आपकी डिजिटल सेवाओं का केंद्र है। संचालक: Rupnath।</p>",
-contact:"<h3>Contact Us</h3><p class='note'>📞 9509457194<br>✉️ rrupnath14@gmail.com<br>📍 Ranjeetpura, Kekri, Ajmer, Rajasthan<br>🕙 10 AM - 10 PM<br><a class='b' href='https://wa.me/"+C.wa+"'>WhatsApp</a></p>",
-privacy:"<h3>Privacy Policy</h3><p class='note'>हम सिर्फ़ आपका नाम, मोबाइल नंबर और काम की जानकारी आपकी सेवा पूरी करने के लिए लेते हैं। हम OTP, पासवर्ड या बैंक PIN कभी नहीं माँगते। दस्तावेज़ वेबसाइट पर नहीं लिए जाते, सिर्फ़ संपर्क होने के बाद लिए जाते हैं। अपनी जानकारी हटवाने के लिए 9509457194 पर संपर्क करें। आपकी जानकारी किसी को बेची नहीं जाती।</p>",
-terms:"<h3>Terms &amp; Conditions</h3><p class='note'>सेवा शुल्क फ़ॉर्म में दिखाए अनुसार है; जहाँ 'संपर्क करें' लिखा है वहाँ कीमत बातचीत से तय होगी। सरकारी विभाग या बैंक का निर्णय हमारे नियंत्रण में नहीं है। लोन की मंज़ूरी लेंडर की शर्तों पर निर्भर है। गलत जानकारी देने पर होने वाली देरी या अस्वीकृति की ज़िम्मेदारी ग्राहक की होगी।</p>",
-refund:"<h3>Refund Policy</h3><p class='note'>काम शुरू होने से पहले रद्द करने पर पूरा शुल्क लौटाया जाएगा। काम शुरू होने के बाद शुल्क वापस नहीं होगा, और सरकारी शुल्क (यदि लगा हो) अलग से वापस नहीं होता।</p>"
+ about:"<h3>About Us</h3><p class='note'>DIGITAL QA, केकड़ी (अजमेर, राजस्थान) में आपकी डिजिटल सेवाओं का केंद्र है। संचालक: Rupnath।</p>",
+ contact:"<h3>Contact Us</h3><p class='note'>📞 9509457194<br>✉️ rrupnath14@gmail.com<br>📍 Ranjeetpura, Kekri, Ajmer, Rajasthan<br>🕙 10 AM - 10 PM<br><a class='btn' href='https://wa.me/"+C.wa+"'>WhatsApp</a></p>",
+ privacy:"<h3>Privacy Policy</h3><p class='note'>हम सिर्फ़ आपका नाम, मोबाइल नंबर और काम की जानकारी आपकी सेवा पूरी करने के लिए लेते हैं। हम OTP, पासवर्ड या बैंक PIN कभी नहीं माँगते। दस्तावेज़ वेबसाइट पर नहीं लिए जाते, सिर्फ़ संपर्क होने के बाद लिए जाते हैं। अपनी जानकारी हटवाने के लिए 9509457194 पर संपर्क करें। आपकी जानकारी किसी को बेची नहीं जाती।</p>",
+ terms:"<h3>Terms &amp; Conditions</h3><p class='note'>सेवा शुल्क फ़ॉर्म में दिखाए अनुसार है; जहाँ 'संपर्क करें' लिखा है वहाँ कीमत बातचीत से तय होगी। सरकारी विभाग या बैंक का निर्णय हमारे नियंत्रण में नहीं है। लोन की मंज़ूरी लेंडर की शर्तों पर निर्भर है। गलत जानकारी देने पर होने वाली देरी या अस्वीकृति की ज़िम्मेदारी ग्राहक की होगी।</p>",
+ refund:"<h3>Refund Policy</h3><p class='note'>काम शुरू होने से पहले रद्द करने पर पूरा शुल्क लौटाया जाएगा। काम शुरू होने के बाद शुल्क वापस नहीं होगा, और सरकारी शुल्क (यदि लगा हो) अलग से वापस नहीं होता।</p>"
 };
-var cur,$=function(i){return document.getElementById(i)},v=function(i){var e=$(i);return e?e.value:""};
+
+var cur;
+var $=function(i){return document.getElementById(i)};
+var v=function(i){var e=$(i);return e?e.value:""};
 function t(k){return T[k][LG==="hi"?1:0]}
 function t2(a){return a[LG==="hi"?1:0]}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
 var WA="https://wa.me/"+C.wa+"?text="+encodeURIComponent("Hello DIGITAL QA, मुझे आपकी सर्विस के बारे में जानकारी चाहिए।");
-$("wa2").href=WA;$("wa3").href=WA;$("upi").textContent=C.upi;
-if(!UP){$("pay").style.display="none";$("npy").style.display="none"}
+$("wa2").href=WA;
+$("wa3").href=WA;
+$("upi").textContent=C.upi;
+
+if(!UP){$("pay").style.display="none"}
+
 function render(){
-document.documentElement.lang=LG;
-document.querySelectorAll("[data-k]").forEach(function(e){e.textContent=t(e.getAttribute("data-k"))});
-$("lb").textContent=LG==="hi"?"English":"हिंदी";
-var h="";
-S.forEach(function(c,x){h+='<div class="card"><div class="ic">'+c.i+'</div><h3>'+t2(c.t)+'</h3><p class="d">'+t2(c.d)+'</p>';
-c.o.forEach(function(o,y){h+='<div class="row"><span>'+t2(o)+'</span><b>'+(o[2]?'₹'+o[2]:t("cn"))+'</b><button class="ok" onclick="openF('+x+','+y+')">✅ '+t("ap")+'</button></div>'});
-h+='</div>'});
-$("gr").innerHTML=h}
-function setL(){LG=LG==="hi"?"en":"hi";try{localStorage.setItem("lg",LG)}catch(e){}render()}
-function show(html){$("mb").innerHTML=html+'<p style="text-align:center;margin-top:12px"><button class="b" onclick="closeM()">'+t("cl")+'</button></p>';$("md").style.display="block"}
-function showTr(){var s=$("tr");s.style.display="block";s.scrollIntoView();return false}
-function hideTr(){$("tr").style.display="none";window.scrollTo(0,0);return false}
+ document.documentElement.lang=LG;
+ document.querySelectorAll("[data-k]").forEach(function(e){
+  e.textContent=t(e.getAttribute("data-k"));
+ });
+ $("lb").textContent=LG==="hi"?"English":"हिंदी";
+ var h="";
+ S.forEach(function(c,x){
+  h+='<div class="card service"><div class="ic">'+c.i+'</div><h3>'+t2(c.t)+'</h3><p class="desc">'+t2(c.d)+'</p>';
+  c.o.forEach(function(o,y){
+   h+='<div class="row"><span>'+t2(o)+'</span><b>'+(o[2]?'₹'+o[2]:t("cn"))+'</b><button class="apply" onclick="openF('+x+','+y+')">➜ '+t("ap")+'</button></div>';
+  });
+  h+='</div>';
+ });
+ $("gr").innerHTML=h;
+}
+function setL(){
+ LG=LG==="hi"?"en":"hi";
+ try{localStorage.setItem("lg",LG)}catch(e){}
+ render();
+}
+function show(html){
+ $("mb").innerHTML=html+'<p style="text-align:center;margin-top:12px"><button class="btn" onclick="closeM()">'+t("cl")+'</button></p>';
+ $("md").style.display="block";
+}
+function showTr(){
+ $("tr").style.display="block";
+ $("tr").scrollIntoView();
+ return false;
+}
+function hideTr(){
+ $("tr").style.display="none";
+ window.scrollTo(0,0);
+ return false;
+}
 function closeM(){$("md").style.display="none"}
 function info(k){show(P[k])}
-function cp(){if(navigator.clipboard)navigator.clipboard.writeText(C.upi);alert(t("cd"))}
-function gen(){var a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",r=crypto.getRandomValues(new Uint8Array(8)),s="DQ";for(var i=0;i<8;i++)s+=a[r[i]%a.length];return s}
-function say(){if(!window.speechSynthesis){alert(t("vn"));return}
-var l=LG==="hi"?"hi":"en",vs=speechSynthesis.getVoices(),has=vs.some(function(x){return x.lang.toLowerCase().indexOf(l)==0});
-if(vs.length&&!has){alert(t("vh"));return}
-var u=new SpeechSynthesisUtterance(t("vt"));u.lang=LG==="hi"?"hi-IN":"en-IN";speechSynthesis.cancel();speechSynthesis.speak(u)}
-function openF(x,y){cur={c:S[x],o:S[x].o[y]};var o=cur.o;
-var f='<h3 style="color:#19c3ff">'+t2(o)+'</h3><p style="color:#ffc633">'+t("fee")+(o[2]?'₹'+o[2]:t("cn"))+'</p><p><button class="b g" onclick="say()">'+t("vs")+'</button></p><label>'+t("nm")+'</label><input id="n"><label>'+t("mo")+' *</label><input id="m" type="tel" maxlength="10"><label>'+t("dt")+'</label><textarea id="dt" rows="3" placeholder="'+t("dp")+'"></textarea><div class="warn">'+t("wn")+'</div><p class="note">'+t("ag")+'</p><p style="margin-top:10px"><button class="ok" id="sb" onclick="sub()">'+t("sb")+'</button></p>';
-show(f)}
+function cp(){
+ if(navigator.clipboard){
+  navigator.clipboard.writeText(C.upi).then(function(){alert(t("cd"))}).catch(function(){alert(C.upi)});
+ }else{alert(C.upi)}
+}
+function gen(){
+ var a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+ var r=crypto.getRandomValues(new Uint8Array(8)),s="DQ";
+ for(var i=0;i<8;i++)s+=a[r[i]%a.length];
+ return s;
+}
+function say(){
+ if(!window.speechSynthesis){alert(t("vn"));return}
+ var l=LG==="hi"?"hi":"en",vs=speechSynthesis.getVoices();
+ var has=vs.some(function(x){return x.lang.toLowerCase().indexOf(l)==0});
+ if(vs.length&&!has){alert(t("vh"));return}
+ var u=new SpeechSynthesisUtterance(t("vt"));
+ u.lang=LG==="hi"?"hi-IN":"en-IN";
+ speechSynthesis.cancel();
+ speechSynthesis.speak(u);
+}
+function openF(x,y){
+ cur={c:S[x],o:S[x].o[y]};
+ var o=cur.o;
+ var f='<h3 style="color:#19c3ff">'+t2(o)+'</h3>'+
+ '<p style="color:#ffc633">'+t("fee")+(o[2]?'₹'+o[2]:t("cn"))+'</p>'+
+ '<p><button class="btn gold" onclick="say()">'+t("vs")+'</button></p>'+
+ '<label>'+t("nm")+'</label><input id="n">'+
+ '<label>'+t("mo")+' *</label><input id="m" type="tel" maxlength="10">'+
+ '<label>'+t("dt")+'</label><textarea id="dt" rows="3" placeholder="'+t("dp")+'"></textarea>'+
+ '<div class="warn">'+t("wn")+'</div>'+
+ '<p class="note">'+t("ag")+'</p>'+
+ '<p style="margin-top:10px"><button class="btn" id="sb" onclick="sub()">'+t("sb")+'</button></p>';
+ show(f);
+}
 function sub(){
-var n=v("n").trim(),m=v("m").trim();
-if(n.length<2||!/^[6-9]\d{9}$/.test(m)){alert(t("e1"));return}
-if(!OK){alert(t("e3"));return}
-var id=gen(),ex={};
-var d={id:id,name:n,mobile:m,email:"",service:cur.o[0],category:cur.c.t[0],price:cur.o[2],details:v("dt"),extra:ex,payRef:"",paymentStatus:"Pending",status:"Received",consent:true,createdAt:firebase.firestore.FieldValue.serverTimestamp(),history:[{s:"Received",t:Date.now()}]};
-$("sb").disabled=true;$("sb").textContent=t("sg");
-db.collection("applications").doc(id).set(d).then(function(){
-show('<h3 style="color:#ffc633">'+t("ok")+'</h3><p class="note" style="font-size:14px">'+t("ok2")+'</p><div class="upi">'+id+'</div><p class="note">'+t("ok3")+'</p>')
-}).catch(function(){alert(t("e4"));$("sb").disabled=false;$("sb").textContent=t("sb")})}
+ var n=v("n").trim(),m=v("m").trim();
+ if(n.length<2||!/^[6-9]\d{9}$/.test(m)){alert(t("e1"));return}
+ if(!OK){alert(t("e3"));return}
+ var id=gen(),ex={};
+ var d={
+  id:id,name:n,mobile:m,email:"",
+  service:cur.o[0],category:cur.c.t[0],price:cur.o[2],
+  details:v("dt"),extra:ex,payRef:"",
+  paymentStatus:"Pending",status:"Received",consent:true,
+  createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+  history:[{s:"Received",t:Date.now()}]
+ };
+ $("sb").disabled=true;
+ $("sb").textContent=t("sg");
+ db.collection("applications").doc(id).set(d).then(function(){
+  show('<h3 style="color:#ffc633">'+t("ok")+'</h3><p class="note" style="font-size:14px">'+t("ok2")+'</p><div class="upi">'+id+'</div><p class="note">'+t("ok3")+'</p>');
+ }).catch(function(){
+  alert(t("e4"));
+  $("sb").disabled=false;
+  $("sb").textContent=t("sb");
+ });
+}
+function trackLookup(id,m,out){
+ if(!id||!m){out.innerHTML='<p class="note">'+t("t1")+'</p>';return}
+ if(!db){out.innerHTML='<p class="note">'+t("t4")+'</p>';return}
+ out.innerHTML='<p class="note">'+t("t2")+'</p>';
+ db.collection("applications").doc(id).get().then(function(s){
+  if(!s.exists||s.data().mobile!==m){
+   out.innerHTML='<p class="note">'+t("t3")+'</p>';return;
+  }
+  var d=s.data(),x='<p style="margin-top:12px"><b>'+esc(d.service)+'</b><br><span class="note">'+t("py")+esc(d.paymentStatus)+'</span></p><ul class="tl">';
+  (d.history||[]).forEach(function(e){
+   x+='<li>'+(L[e.s]?t2(L[e.s]):esc(e.s))+'<small>'+new Date(e.t).toLocaleString(LG==="hi"?"hi-IN":"en-IN")+'</small></li>';
+  });
+  out.innerHTML=x+'</ul>';
+ }).catch(function(){
+  out.innerHTML='<p class="note">'+t("t4")+'</p>';
+ });
+}
 function trk(){
-var id=v("ti").trim().toUpperCase(),m=v("tm").trim(),o=$("to");
-if(!id||!m){o.innerHTML='<p class="note">'+t("t1")+'</p>';return}
-if(!db){o.innerHTML='<p class="note">'+t("t4")+'</p>';return}
-o.innerHTML='<p class="note">'+t("t2")+'</p>';
-db.collection("applications").doc(id).get().then(function(s){
-if(!s.exists||s.data().mobile!==m){o.innerHTML='<p class="note">'+t("t3")+'</p>';return}
-var d=s.data(),x='<p style="margin-top:12px"><b>'+esc(d.service)+'</b><br><span class="note">'+t("py")+esc(d.paymentStatus)+'</span></p><ul class="tl">';
-(d.history||[]).forEach(function(e){x+='<li>'+(L[e.s]?t2(L[e.s]):esc(e.s))+'<small>'+new Date(e.t).toLocaleString(LG==="hi"?"hi-IN":"en-IN")+'</small></li>'});
-o.innerHTML=x+'</ul>'}).catch(function(){o.innerHTML='<p class="note">'+t("t4")+'</p>'})}
+ trackLookup(v("ti").trim().toUpperCase(),v("tm").trim(),$("to"));
+}
+function track2(){
+ trackLookup(v("ti2").trim().toUpperCase(),v("tm2").trim(),$("to2"));
+}
 render();
 </script>
 </body>
